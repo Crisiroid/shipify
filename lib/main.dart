@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shipify/View/BottomNavigationBarPages/HomePage.dart';
 import 'package:shipify/View/Home.dart';
 
 void main() {
