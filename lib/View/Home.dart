@@ -1,31 +1,22 @@
 // ignore_for_file: prefer_const_constructors, prefer_final_fields, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:shipify/View/BottomNavigationBarPages/CartPage.dart';
+import 'package:shipify/View/BottomNavigationBarPages/CategoryPage.dart';
+import 'package:shipify/View/BottomNavigationBarPages/HomePage.dart';
+import 'package:shipify/View/BottomNavigationBarPages/ProfilePage.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomeView extends StatefulWidget {
+  const HomeView({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeViewState extends State<HomeView> {
   int _selectedTab = 0;
 
-  List _pages = [
-    Center(
-      child: Text("Home"),
-    ),
-    Center(
-      child: Text("Shopping cart"),
-    ),
-    Center(
-      child: Text("Categories"),
-    ),
-    Center(
-      child: Text("Profile"),
-    )
-  ];
+  List _pages = [HomePage(), CartPage(), CategoriesPage(), ProfilePage()];
 
   _changeTap(int index) {
     setState(() {

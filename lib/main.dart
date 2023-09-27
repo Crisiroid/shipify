@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shipify/View/HomePage.dart';
+import 'package:shipify/View/BottomNavigationBarPages/HomePage.dart';
+import 'package:shipify/View/Home.dart';
 
 void main() {
   runApp(Shipify());
@@ -12,7 +13,7 @@ class Shipify extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Shipify - A new Online store!",
-      home: HomePage(),
+      home: HomeView(),
     );
   }
 }
