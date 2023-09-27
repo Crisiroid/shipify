@@ -14,6 +14,7 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  TextEditingController tex = new TextEditingController();
   int _selectedTab = 0;
 
   List _pages = [HomePage(), CartPage(), CategoriesPage(), ProfilePage()];
@@ -27,6 +28,18 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        shadowColor: Colors.transparent,
+        title: TextField(
+          controller: tex,
+          decoration: InputDecoration(
+            hintText: "Shipify",
+            filled: true,
+            fillColor: Color.fromARGB(255, 200, 199, 199),
+          ),
+        ),
+      ),
       body: _pages[_selectedTab],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedTab,
