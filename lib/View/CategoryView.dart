@@ -26,14 +26,23 @@ class _CategoryViewState extends State<CategoryView> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         shadowColor: Colors.transparent,
-        title: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+            Text(
+              "Shipify ",
+              style: TextStyle(color: Colors.black),
+            )
+          ],
         ),
       ),
       body: SafeArea(
