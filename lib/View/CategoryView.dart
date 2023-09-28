@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:shipify/Model/Product.dart';
+import 'package:shipify/View/ProductPage.dart';
 
 class CategoryView extends StatefulWidget {
   final String name;
@@ -53,14 +54,23 @@ class _CategoryViewState extends State<CategoryView> {
               return ListView.builder(
                   itemCount: snapshot.data!.length,
                   itemBuilder: (context, index) {
-                    return Card(
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      child: Container(
-                          margin: EdgeInsets.all(10),
-                          child: ListTile(
-                            title: Text(snapshot.data![index].title.toString()),
-                            leading: Image.network(snapshot.data![index].image),
-                          )),
+                    return GestureDetector(
+                      onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  ProductPage(id: snapshot.data![index].id))),
+                      child: Card(
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        child: Container(
+                            margin: EdgeInsets.all(10),
+                            child: ListTile(
+                              title:
+                                  Text(snapshot.data![index].title.toString()),
+                              leading:
+                                  Image.network(snapshot.data![index].image),
+                            )),
+                      ),
                     );
                   });
             } else if (snapshot.hasError) {
