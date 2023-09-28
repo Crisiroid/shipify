@@ -23,19 +23,21 @@ class _CategoryViewState extends State<CategoryView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Center(
-          child: FutureBuilder(
-            future: _allProducts,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return Text("Data");
-              } else if (snapshot.hasError) {
-                return Text(snapshot.error.toString());
-              }
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Center(
+            child: FutureBuilder(
+              future: _allProducts,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Text("Data");
+                } else if (snapshot.hasError) {
+                  return Text(snapshot.error.toString());
+                }
 
-              return CircularProgressIndicator();
-            },
+                return CircularProgressIndicator();
+              },
+            ),
           ),
         ),
       ),
