@@ -24,21 +24,27 @@ class _CategoryViewState extends State<CategoryView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Center(
-            child: FutureBuilder(
-              future: _allProducts,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return Text("Data");
-                } else if (snapshot.hasError) {
-                  return Text(snapshot.error.toString());
-                }
+        child: FutureBuilder(
+          future: _allProducts,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: (context, index) {
+                    return Card(
+                      child: Container(
+                          child: ListTile(
+                        title: Text(snapshot.data![index].title.toString()),
+                        leading: Image.network(snapshot.data![index].image),
+                      )),
+                    );
+                  });
+            } else if (snapshot.hasError) {
+              return Text(snapshot.error.toString());
+            }
 
-                return CircularProgressIndicator();
-              },
-            ),
-          ),
+            return CircularProgressIndicator();
+          },
         ),
       ),
     );

@@ -33,7 +33,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                CategoryView(name: "Electronics")));
+                                CategoryView(name: "electronics")));
                   }),
               const SizedBox(width: 20),
               CategoryBox(
@@ -48,7 +48,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                CategoryView(name: "Jewelery")));
+                                CategoryView(name: "jewelery")));
                   })
             ],
           ),
