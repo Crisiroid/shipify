@@ -61,3 +61,15 @@ Future<List<Product>> AllProducts(String name) async {
 
   return list;
 }
+
+// ignore: non_constant_identifier_names
+Future<Product> ShowProduct(int id) async {
+  final res =
+      await http.get(Uri.parse("https://fakestoreapi.com/products/${id}"));
+
+  if (res.statusCode == 200) {
+    return Product.fromJson(jsonDecode(res.body));
+  } else {
+    throw Exception(res.body);
+  }
+}

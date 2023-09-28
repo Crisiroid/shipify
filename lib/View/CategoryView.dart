@@ -23,6 +23,19 @@ class _CategoryViewState extends State<CategoryView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        shadowColor: Colors.transparent,
+        title: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
       body: SafeArea(
         child: FutureBuilder(
           future: _allProducts,
@@ -32,11 +45,13 @@ class _CategoryViewState extends State<CategoryView> {
                   itemCount: snapshot.data!.length,
                   itemBuilder: (context, index) {
                     return Card(
+                      color: Color.fromARGB(255, 255, 255, 255),
                       child: Container(
+                          margin: EdgeInsets.all(10),
                           child: ListTile(
-                        title: Text(snapshot.data![index].title.toString()),
-                        leading: Image.network(snapshot.data![index].image),
-                      )),
+                            title: Text(snapshot.data![index].title.toString()),
+                            leading: Image.network(snapshot.data![index].image),
+                          )),
                     );
                   });
             } else if (snapshot.hasError) {
