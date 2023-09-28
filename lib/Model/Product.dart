@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:shipify/Model/Rating.dart';
+import 'package:http/http.dart' as http;
 
 class Product {
   final int id;
   final String title;
-  final int price;
+  final double price;
   final String description;
   final String category;
   final String image;
@@ -30,4 +33,20 @@ class Product {
       rating: json['rating'],
     );
   }
+}
+
+Future<List<Product>> AllProducts(String name) async {
+  List<Product> list = [];
+  final res = await http
+      .get(Uri.parse("https://fakestoreapi.com/products/category/${name}"));
+
+  if (res.statusCode == 200) {
+    for (final product in jsonDecode(res.body)) {
+      list.add(Product.fromJson(product));
+    }
+  } else {
+    throw Exception(res.body);
+  }
+
+  return list;
 }

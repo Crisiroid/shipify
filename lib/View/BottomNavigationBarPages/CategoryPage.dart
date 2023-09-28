@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:shipify/View/CategoryView.dart';
 import 'package:shipify/View/Decoration/CategoryBox.dart';
 
 class CategoriesPage extends StatefulWidget {
@@ -27,7 +28,13 @@ class _CategoriesPageState extends State<CategoriesPage> {
                     Icons.phone_android_outlined,
                     size: 90,
                   ),
-                  onTap: () {}),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                CategoryView(name: "Electronics")));
+                  }),
               const SizedBox(width: 20),
               CategoryBox(
                   name: "Jewelery",
@@ -36,7 +43,13 @@ class _CategoriesPageState extends State<CategoriesPage> {
                     Icons.air,
                     size: 90,
                   ),
-                  onTap: () {})
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                CategoryView(name: "Jewelery")));
+                  })
             ],
           ),
           const SizedBox(height: 20),
@@ -50,7 +63,13 @@ class _CategoriesPageState extends State<CategoriesPage> {
                     Icons.man_2,
                     size: 90,
                   ),
-                  onTap: () {}),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                CategoryView(name: "men's clothing")));
+                  }),
               const SizedBox(width: 20),
               CategoryBox(
                   name: "Dress",
@@ -59,7 +78,13 @@ class _CategoriesPageState extends State<CategoriesPage> {
                     Icons.woman_outlined,
                     size: 90,
                   ),
-                  onTap: () {})
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                CategoryView(name: "women's clothing")));
+                  })
             ],
           ),
         ],
