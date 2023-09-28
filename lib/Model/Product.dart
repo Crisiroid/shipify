@@ -23,10 +23,21 @@ class Product {
   });
 
   factory Product.fromJson(Map<String, dynamic> json) {
+    double price =
+        0.0; // Default value in case 'price' cannot be parsed as double
+
+    try {
+      price = (json['price'] as num)
+          .toDouble(); // Attempt to parse 'price' as a double
+    } catch (e) {
+      // Handle the exception if parsing 'price' as a double fails
+      print("Error parsing 'price': $e");
+    }
+
     return Product(
       id: json['id'],
       title: json['title'],
-      price: json['price'],
+      price: price,
       description: json['description'],
       category: json['category'],
       image: json['image'],
