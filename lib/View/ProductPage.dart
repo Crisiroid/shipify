@@ -87,7 +87,7 @@ class _ProductPageState extends State<ProductPage> {
                         ],
                       ),
                       const Text(
-                        "Ratings:",
+                        "Ratings: ",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold),
                       ),
