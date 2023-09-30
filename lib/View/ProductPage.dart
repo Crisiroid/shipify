@@ -22,7 +22,7 @@ class _ProductPageState extends State<ProductPage> {
     List<Widget> stars = [];
 
     for (int i = 0; i < ratingCount; i++) {
-      stars.add(Icon(Icons.star, color: Colors.yellow));
+      stars.add(const Icon(Icons.star, color: Colors.yellow));
     }
 
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: stars);
@@ -38,7 +38,7 @@ class _ProductPageState extends State<ProductPage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back,
                 color: Colors.black,
               ),
@@ -56,7 +56,7 @@ class _ProductPageState extends State<ProductPage> {
       body: SingleChildScrollView(
         child: Center(
           child: Container(
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             child: FutureBuilder(
               future: p,
               builder: (context, snapshot) {
