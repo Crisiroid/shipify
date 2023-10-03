@@ -10,22 +10,45 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  TextEditingController _usernameController = new TextEditingController();
+  TextEditingController _passwordController = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         children: [
           const SizedBox(
-            height: 30,
+            height: 170,
           ),
           Text(
             "Shipify",
             style: TextStyle(color: Colors.black, fontSize: 70),
           ),
+          const SizedBox(height: 30),
           Container(
             width: MediaQuery.of(context).size.width - 30,
             child: TextField(
-              decoration: InputDecoration(hintText: "Username"),
+              controller: _usernameController,
+              decoration: InputDecoration(
+                hintText: "Username",
+                filled: true,
+                fillColor: Color.fromARGB(255, 227, 225, 225),
+                border: InputBorder.none,
+              ),
+            ),
+          ),
+          const SizedBox(height: 30),
+          Container(
+            width: MediaQuery.of(context).size.width - 30,
+            child: TextField(
+              controller: _passwordController,
+              decoration: InputDecoration(
+                hintText: "Password",
+                filled: true,
+                fillColor: Color.fromARGB(255, 227, 225, 225),
+                border: InputBorder.none,
+              ),
             ),
           )
         ],
