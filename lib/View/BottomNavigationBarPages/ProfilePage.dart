@@ -50,7 +50,15 @@ class _ProfilePageState extends State<ProfilePage> {
                 border: InputBorder.none,
               ),
             ),
-          )
+          ),
+          Container(
+              margin: EdgeInsets.all(30),
+              width: MediaQuery.of(context).size.width - 100,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text("Submit"),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
+              ))
         ],
       ),
     );
