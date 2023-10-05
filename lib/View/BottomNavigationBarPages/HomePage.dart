@@ -48,25 +48,33 @@ class _HomePageState extends State<HomePage> {
             ),
           ]),
         ),
-        Container(
-            margin: EdgeInsets.only(top: 30),
-            color: Colors.red,
-            height: 300,
-            child: FutureBuilder(
-              future: _productList,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(children: []),
-                  );
-                } else if (snapshot.hasError) {
-                  return Text(snapshot.error.toString());
-                }
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Container(
+              margin: EdgeInsets.only(top: 30),
+              color: Colors.red,
+              height: 300,
+              child: Row(
+                children: [
+                  Text(
+                    "Futured Products:",
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  ),
+                  FutureBuilder(
+                    future: _productList,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return Text("Hello world");
+                      } else if (snapshot.hasError) {
+                        return Text(snapshot.error.toString());
+                      }
 
-                return CircularProgressIndicator();
-              },
-            ))
+                      return CircularProgressIndicator();
+                    },
+                  ),
+                ],
+              )),
+        )
       ]),
     ));
   }
