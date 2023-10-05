@@ -48,15 +48,15 @@ class Product {
 
 Future<List<Product>> AllProducts(String name) async {
   List<Product> list = [];
-  final res = await http
+  final _res = await http
       .get(Uri.parse("https://fakestoreapi.com/products/category/${name}"));
 
-  if (res.statusCode == 200) {
-    for (final product in jsonDecode(res.body)) {
+  if (_res.statusCode == 200) {
+    for (final product in jsonDecode(_res.body)) {
       list.add(Product.fromJson(product));
     }
   } else {
-    throw Exception(res.body);
+    throw Exception(_res.body);
   }
 
   return list;
@@ -64,12 +64,28 @@ Future<List<Product>> AllProducts(String name) async {
 
 // ignore: non_constant_identifier_names
 Future<Product> ShowProduct(int id) async {
-  final res =
+  final _res =
       await http.get(Uri.parse("https://fakestoreapi.com/products/${id}"));
 
-  if (res.statusCode == 200) {
-    return Product.fromJson(jsonDecode(res.body));
+  if (_res.statusCode == 200) {
+    return Product.fromJson(jsonDecode(_res.body));
   } else {
-    throw Exception(res.body);
+    throw Exception(_res.body);
   }
+}
+
+Future<List<Product>> ShowProductsLimited(int limitation) async {
+  List<Product> list = [];
+  final _res = await http.get(Uri.parse(
+      "https://fakestoreapi.com/products?limit=${limitation.toString()}"));
+
+  if (_res.statusCode == 200) {
+    for (final product in jsonDecode(_res.body)) {
+      list.add(Product.fromJson(product));
+    }
+  } else {
+    throw Exception(_res.body);
+  }
+
+  return list;
 }

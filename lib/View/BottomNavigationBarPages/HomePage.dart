@@ -38,6 +38,14 @@ class _HomePageState extends State<HomePage> {
               onTap: () {},
             ),
           ]),
+        ),
+        Container(
+          margin: EdgeInsets.only(top: 30),
+          color: Colors.red,
+          height: 300,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+          ),
         )
       ]),
     ));
