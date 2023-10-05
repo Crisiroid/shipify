@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_final_fields, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:shipify/Model/Product.dart';
 import 'package:shipify/View/Decoration/Slides.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,6 +12,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late Future<List<Product>> _productList;
+
+  @override
+  void initState() {
+    super.initState();
+    _productList = ShowProductsLimited(7);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -40,13 +49,24 @@ class _HomePageState extends State<HomePage> {
           ]),
         ),
         Container(
-          margin: EdgeInsets.only(top: 30),
-          color: Colors.red,
-          height: 300,
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-          ),
-        )
+            margin: EdgeInsets.only(top: 30),
+            color: Colors.red,
+            height: 300,
+            child: FutureBuilder(
+              future: _productList,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(children: []),
+                  );
+                } else if (snapshot.hasError) {
+                  return Text(snapshot.error.toString());
+                }
+
+                return CircularProgressIndicator();
+              },
+            ))
       ]),
     ));
   }
