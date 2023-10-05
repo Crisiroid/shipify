@@ -20,11 +20,23 @@ class _HomePageState extends State<HomePage> {
           scrollDirection: Axis.horizontal,
           child: Row(children: [
             Slides(
-                slideText: "hello world", imageUrl: "imageUrl", onTap: () {}),
+              slideText: "hello world",
+              imageUrl:
+                  "https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png",
+              onTap: () {},
+            ),
             Slides(
-                slideText: "hello world", imageUrl: "imageUrl", onTap: () {}),
+              slideText: "hello world",
+              imageUrl:
+                  "https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png",
+              onTap: () {},
+            ),
             Slides(
-                slideText: "hello world", imageUrl: "imageUrl", onTap: () {}),
+              slideText: "hello world",
+              imageUrl:
+                  "https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png",
+              onTap: () {},
+            ),
           ]),
         )
       ]),

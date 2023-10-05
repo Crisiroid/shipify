@@ -19,9 +19,12 @@ class Slides extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Container(
-            width: 250,
+            width: MediaQuery.of(context).size.width - 40,
             height: 250,
-            color: Colors.white,
+            child: Image.network(
+              imageUrl,
+              fit: BoxFit.fill,
+            ),
           ),
           Container(
             padding: const EdgeInsets.all(5.0),
