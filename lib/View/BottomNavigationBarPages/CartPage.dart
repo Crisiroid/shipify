@@ -11,7 +11,9 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("Cart Page"),
+      child: ListView.builder(itemBuilder: (context, index){
+        return Container()
+      }),
     );
   }
 }
