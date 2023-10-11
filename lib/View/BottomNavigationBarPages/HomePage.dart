@@ -29,19 +29,19 @@ class _HomePageState extends State<HomePage> {
           scrollDirection: Axis.horizontal,
           child: Row(children: [
             Slides(
-              slideText: "hello world",
+              slideText: "First Slide",
               imageUrl:
                   "https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png",
               onTap: () {},
             ),
             Slides(
-              slideText: "hello world",
+              slideText: "Second Slide",
               imageUrl:
                   "https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png",
               onTap: () {},
             ),
             Slides(
-              slideText: "hello world",
+              slideText: "Third Slide",
               imageUrl:
                   "https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png",
               onTap: () {},
