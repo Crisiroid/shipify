@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shipify/Model/Product.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
@@ -8,6 +9,18 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
+  late List<Product> products;
+  bool hasProduct = false;
+  @override
+  void initState() {
+    super.initState();
+    if (products.isEmpty) {
+      hasProduct = false;
+    } else {
+      hasProduct = true;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
